@@ -54,9 +54,11 @@ class NeuralNetwork(nn.Module): # nn Module 을 상속 받아서 기본적인 �
         )
 
     def forward(self, x): # 호출되면 수행하는 연산
-        x = self.flatten(x)
-        logits = self.linear_relu_stack(x)
-        return logits
+        x = self.flatten(x) # 평탄화 한 다음에
+        logits = self.linear_relu_stack(x) # 아까 위에서 만든 sequential 컨테이너에 전달하면 저 안에 있는 nn. * 레이어 수행하는 듯 * ??!
+        return logits 
     
-model = NeuralNetwork().to(device)
+model = NeuralNetwork().to(device) # NN 의 instance 생성, mps 으로 이동하고 구조를 출력
 print(model)
+
+# https://tutorials.pytorch.kr/beginner/basics/buildmodel_tutorial.html
